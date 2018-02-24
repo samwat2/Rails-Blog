@@ -1,0 +1,15 @@
+<div class="container">
+	<div class="row">
+		<div class="users">
+			<% @users.each do |user| %>
+				<div class="col-4 users_page">
+					<div class="user names_of_users">
+					<%= image_tag "profile_picture_two.jpg", class: "rounded img-thumbnail mx-auto d-block" %>
+						<h1><%= user.first_name %> <%= user.last_name %></h1>
+						<%= link_to "User Page", user %>
+					</div>
+			  </div>
+			<% end %>
+		</div>
+	</div>
+</div>
