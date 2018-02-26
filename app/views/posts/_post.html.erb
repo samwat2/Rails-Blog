@@ -1,0 +1,21 @@
+<h1><%= post.user.first_name %> : <%= post.content %></h1>
+<div class="btn-group dropright">
+  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropright
+  </button>
+  <div class="dropdown-menu">
+		<div class="post">
+			<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<% post.comments.each do |comment| %>
+				<h3><%= comment.user.first_name %> : <%= comment.content %></h3>
+			<% end %>
+			</button>
+				<%= form_with model: Comment.new, local: true do |f| %>
+					<%= f.label :content %>
+					<%= f.text_field :content, placeholder: 'Content', class: 'from-control' %>	
+					<%= f.hidden_field :post_id, value: post.id %>
+					<%= f.submit class: 'btn btn-primary' %>
+				<% end %>
+		</div>
+  </div>
+</div>
