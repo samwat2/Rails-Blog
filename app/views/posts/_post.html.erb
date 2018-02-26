@@ -1,7 +1,10 @@
-<h1><%= post.user.first_name %> : <%= post.content %></h1>
+<div class="header">
+	<h1><%= post.user.first_name %> : <%= post.content %></h1>
+	<%= image_tag "profile_picture_two.jpg", class: "rounded img-thumbnail mx-auto d-block" %>
+</div>
 <div class="btn-group dropright">
   <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropright
+    Comments
   </button>
   <div class="dropdown-menu">
 		<div class="post">
