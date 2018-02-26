@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+@import "comments";
 @import "users";
 @import "posts";
 @import "bootstrap";
