@@ -1,24 +1,41 @@
-<div class="header">
-	<h1><%= post.user.first_name %> : <%= post.content %></h1>
-	<%= image_tag "profile_picture_two.jpg", class: "rounded img-thumbnail mx-auto d-block" %>
-</div>
-<div class="btn-group dropright">
-  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Comments
-  </button>
-  <div class="dropdown-menu">
-		<div class="post">
-			<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			<% post.comments.each do |comment| %>
-				<h3><%= comment.user.first_name %> : <%= comment.content %></h3>
-			<% end %>
-			</button>
-				<%= form_with model: Comment.new, local: true do |f| %>
-					<%= f.label :content %>
-					<%= f.text_field :content, placeholder: 'Content', class: 'from-control' %>	
-					<%= f.hidden_field :post_id, value: post.id %>
-					<%= f.submit class: 'btn btn-primary' %>
-				<% end %>
+<div class="container">
+	<div class="row list_of_posts">
+		<div class="col-5">
+			<%= image_tag "profile_picture_two.jpg", class: "rounded img-thumbnail align-self-center" %>		
 		</div>
-  </div>
+		<div class="col-7">
+			<div class="header-posts">
+				<h7><%= post.user.first_name %> wrote: <%= post.content %></h7>
+			</div>
+			<div class="btn-group dropright">
+			  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			    Comments
+			  </button>
+			  <div class="dropdown-menu">
+					<div>
+						<% post.comments.each do |comment| %>
+						<ul class="post-comments">
+							<p><%= comment.user.first_name %>: <%= comment.content %></p>
+						</ul>
+						<% end %>
+					</div>
+			  </div>
+			</div>
+			<% if user_signed_in? %>
+				<div class="btn-group dropright">
+				  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    Create a Comment
+				  </button>
+					<div class="dropdown-menu">
+						<%= form_with model: Comment.new, local: true do |f| %>
+							<%= f.label :content %>
+							<%= f.text_field :content, placeholder: 'Content', class: 'from-control' %>	
+							<%= f.hidden_field :post_id, value: post.id %>
+							<%= f.submit class: 'btn btn-primary' %>
+						<% end %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
 </div>

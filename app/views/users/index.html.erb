@@ -1,15 +1,19 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">User's</h1>
+    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+  </div>
+</div>
 <div class="container">
-	<div class="row">
-		<div class="users">
-			<% @users.each do |user| %>
-				<div class="col-4 users_page">
-					<div class="user names_of_users">
-					<%= image_tag "profile_picture_two.jpg", class: "rounded img-thumbnail mx-auto d-block" %>
-						<h1><%= user.first_name %> <%= user.last_name %></h1>
-						<%= link_to "User Page", user %>
-					</div>
-			  </div>
-			<% end %>
-		</div>
+	<div class="row users-row">
+		<% @users.each do |user| %>
+			<div class="col-5 offset-.5">
+				<div class="user names_of_users">
+				<%= image_tag "profile_picture_two.jpg", class: "rounded img-thumbnail mx-auto d-block" %>
+					<h3><%= user.first_name %> <%= user.last_name %></h3>
+					<%= link_to "User Page", user %>
+				</div>
+		  </div>
+		<% end %>
 	</div>
 </div>
