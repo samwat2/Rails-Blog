@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @body_class = 'normal-background'
-    @posts = Post.all
+    @posts = Post.all.reverse
   end
 
   def new
@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   def create
     @body_class = 'normal-background'
     @post = current_user.posts.create(post_params)
-    redirect_to @post
+    redirect_to current_user
   end
 
   def show
