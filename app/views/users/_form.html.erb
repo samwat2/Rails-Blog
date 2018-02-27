@@ -21,11 +21,11 @@
 					<%= f.password_field :password, placeholder: 'Password', class: 'form-control' %>
 				</div>
 				<div class="create-an-account">
-					<%= f.submit class: 'btn btn-primary'%>	
+					<%= f.submit class: 'btn btn-primary btn-lg btn-block'%>	
 				</div>
 				<% if new %>
 				<div class="sign-in">
-					<%= link_to "Signin", login_path, placeholder: 'Sign-in!', class: 'btn btn-primary' %>
+					<%= link_to "Signin", login_path, placeholder: 'Sign-in!', class: 'btn btn-secondary btn-lg btn-block' %>
 					<%= f.label :already_have_an_account? %>
 				</div>
 				<% end %>

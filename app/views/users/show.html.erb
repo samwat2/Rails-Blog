@@ -22,7 +22,10 @@
 			<div class="postsOnProfile">
 				<h3>Posts By <%= @user.first_name %></h3>
 				<% @user.posts.each do |post| %>
-					<h4><%= post.content %>, <%= post.created_at %></h4>
+					<h5>
+						<%= link_to post.content, post %>
+						<%= time_ago_in_words post.created_at %> ago
+					</h5>
 				<% end %>
 			</div>
 		</div>

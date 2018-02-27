@@ -5,7 +5,7 @@
 	<% end %>
 	<div class="row">
 		<div class="col-8 offset-2">
-			<h2 class="text-center">Welcome Back!</h2>
+			<h2 class="text-center colors"><u>Welcome Back!</u></h2>
 			<div class="form-group">
 				<%= form_with url: login_path, local: true do |f| %> 
 					<div class="form-group">
@@ -14,7 +14,7 @@
 					<div class="form-group">
 						<%= f.password_field :password, placeholder: 'Password', class: 'form-control' %>
 						</div>
-					<%= f.submit class: 'btn btn-primary', value: 'login' %>
+					<%= f.submit class: 'btn btn-primary btn-lg btn-block', value: 'login' %>
 				<% end %>
 			</div>
 		</div>
