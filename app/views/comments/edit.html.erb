@@ -1,2 +1,15 @@
-<h1>Comments#edit</h1>
-<p>Find me in app/views/comments/edit.html.erb</p>
+<div class="container">
+	<div class="row">
+		<h1 class="text-center">edit</h1>
+		<div class="col-8 offset-2">
+			<div class="form-group">
+				<%= form_with model: @comment, local: true do |f| %>
+					<%= f.label :content %>
+					<%= f.text_field :content, placeholder: 'Content', class: 'from-control' %>	
+					<%= f.submit class: 'btn btn-primary' %>
+				<% end %>	
+				<%= link_to "Delete comment", @comment, method: :destory, class: 'btn btn-primary' %>
+			</div>
+		</div>
+	</div>
+</div>

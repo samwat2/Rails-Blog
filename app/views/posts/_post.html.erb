@@ -15,6 +15,7 @@
 					<ul class="list-group size">
 						<% post.comments.each do |comment| %>
 							<li class="list-group-item"><%= comment.user.first_name %>: <%= comment.content %></li>
+							<%= link_to "Edit comment", edit_comment_path(comment) %>
 						<% end %>
 					</ul>
 			  </div>
