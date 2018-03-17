@@ -23,6 +23,7 @@ class CommentsController < ApplicationController
   def edit
     @body_class = 'normal-background'
     @comment = current_user.comments.find(params[:id])
+    redirect_to @comment.post
   end
 
   def update
